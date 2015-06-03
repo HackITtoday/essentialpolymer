@@ -1,5 +1,6 @@
+
+<!doctype html>
 <!--
-@license
 Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
 This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
 The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
@@ -7,162 +8,69 @@ The complete set of contributors may be found at http://polymer.github.io/CONTRI
 Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
+<html>
+  <head>
+    <title>neon-animated-pages demo: tiles</title>
 
-<!doctype html>
-<html lang="">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
 
-<head>
-  <meta charset="utf-8">
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="generator" content="Polymer Starter Kit" />
-  <title>Polymer Starter Kit</title>
-  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <script src="../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
 
-  <!-- Chrome for Android theme color -->
-  <meta name="theme-color" content="#303F9F">
+    <link rel="import" href="../bower_components/paper-styles/paper-styles.html">
+    <link rel="import" href="../bower_components/neon-animation/neon-animated-pages.html">
+    <link rel="import" href="../bower_components/neon-animation/neon-animations.html">
+    <link rel="import" href="circles-page.html">
+    <link rel="import" href="squares-page.html">
 
-  <!-- Web Application Manifest -->
-  <link rel="manifest" href="manifest.json">
+    <style>
 
-  <!-- Chrome for Android Theme color -->
-  <meta name="msapplication-TileColor" content="#3372DF">
+      neon-animated-pages {
+        height: 100%;
+		background-image: url("images/headerimage.jpg");
+		background-image: no-repeat;
+      }
 
-  <!-- Add to homescreen for Chrome on Android -->
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="application-name" content="Polymer Starter Kit">
-  <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
+    </style>
 
-  <!-- Add to homescreen for Safari on iOS -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="Polymer Starter Kit">
-  <link rel="apple-touch-icon" href="images/touch/apple-touch-icon.png">
+    <style is="custom-style">
 
-  <!-- Tile icon for Win8 (144x144 + tile color) -->
-  <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+      :root {
+        --color-one: #33cccc;
+        --color-two: #ff9800;
+      }
 
-  <!-- build:css styles/main.css -->
-  <link rel="stylesheet" href="styles/main.css">
-  <!-- endbuild-->
+    </style>
 
-  <!-- build:js bower_components/webcomponentsjs/webcomponents.min.js -->
-  <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
-  <!-- endbuild -->
+  </head>
+  <body class="fullbleed">
 
-  <!-- will be replaced with elements/elements.vulcanized.html -->
-  <link rel="import" href="elements/elements.html">
-  <!-- endreplace-->
-</head>
+    <template is="dom-bind">
 
-<body unresolved class="fullbleed layout vertical">
-  <template is="dom-bind" id="app">
+      <neon-animated-pages id="pages" selected="0">
 
-    <paper-drawer-panel id="paperDrawerPanel" forceNarrow>
-      <div drawer>
+        <circles-page on-circle-click="_onCircleClick"></circles-page>
 
-        <!-- Drawer Toolbar -->
-        <paper-toolbar id="drawerToolbar">
-          <span>Menu</span>
-        </paper-toolbar>
+        <squares-page on-click="_onSquaresClick"></squares-page>
 
-        <!-- Drawer Content -->
-          <paper-menu class="list" attr-for-selected="data-route" selected="{{route}}">
-              <a data-route="home" href="/">
-                <iron-icon icon="home"></iron-icon>
-                <span>Home</span>
-              </a>
+      </neon-animated-pages>
 
-              <a data-route="users" href="/users">
-                <iron-icon icon="info"></iron-icon>
-                <span>Users</span>
-              </a>
+    </template>
 
-              <a data-route="contact" href="/contact">
-                <iron-icon icon="mail"></iron-icon>
-                <span>Contact</span>
-              </a>
-          </paper-menu>
-      </div>
-      <paper-header-panel main mode="waterfall-tall">
-        <!-- Main Toolbar -->
-        <paper-toolbar id="mainToolbar">
-          <button tabindex="1" id="paperToggle" paper-drawer-toggle>
-            <iron-icon icon="menu" paper-drawer-toggle></iron-icon>
-          </button>
-          <span class="flex"></span>
+    <script>
 
-          <!-- Toolbar icons -->
-          <paper-icon-button icon="refresh"></paper-icon-button>
-          <paper-icon-button icon="search"></paper-icon-button>
-          <div class="middle"></div>
+      var scope = document.querySelector('template[is="dom-bind"]');
 
-          <!-- Application name -->
-          <div class="appname bottom paper-font-display2">Polymer Starter Kit</div>
+      scope._onCircleClick = function(event) {
+        this.$.pages.selected = 1;
+      };
 
-        </paper-toolbar>
+      scope._onSquaresClick = function(event) {
+        this.$.pages.selected = 0;
+      };
 
-        <!-- Main Content -->
-          <iron-pages attr-for-selected="data-route" selected="{{route}}">
+    </script>
 
-            <section data-route="home">
-              <paper-material elevation="1">
-                <my-greeting></my-greeting>
-
-                <p class="paper-font-subhead">You now have:</p>
-                <my-list></my-list>
-
-                <p class="paper-font-body2">Looking for more Web App layouts? Check out our <a href="https://github.com/PolymerElements/app-layout-templates">layouts</a> collection. You can also <a href="http://polymerelements.github.io/app-layout-templates/">preview</a> them live.</p>
-              </paper-material>
-            </section>
-
-            <section data-route="users">
-              <paper-material elevation="1">
-                <h2 class="paper-font-display2">Users</h2>
-                <p>This is the users section</p>
-                <a href="/users/Rob">Rob</a></p>
-              </paper-material>
-            </section>
-
-            <section data-route="user-info">
-              <paper-material elevation="1">
-                <h2 class="paper-font-display2">
-                User:<span>{{params.name}}</span>
-                </h2>
-                <div>This is <span>{{params.name}}</span>'s section</div>
-              </paper-material>
-            </section>
-
-            <section data-route="contact">
-              <paper-material elevation="1">
-                <h2 class="paper-font-display2">Contact</h2>
-                <p>This is the contact section</p>
-              </paper-material>
-            </section>
-
-          </iron-pages>
-          </paper-header-panel>
-    </paper-drawer-panel>
-
-    <paper-toast id="caching-complete"
-                 duration="6000"
-                 text="Caching complete! This app will work offline.">
-    </paper-toast>
-
-    <platinum-sw-register auto-register
-                          clients-claim
-                          skip-waiting
-                          on-service-worker-installed="displayInstalledToast">
-      <platinum-sw-cache default-cache-strategy="networkFirst"
-                         precache-file="precache.json">
-      </platinum-sw-cache>
-    </platinum-sw-register>
-
-  </template>
-
-  <!-- build:js scripts/app.js -->
-  <script src="scripts/app.js"></script>
-  <!-- endbuild-->
-</body>
-
+  </body>
 </html>
