@@ -41,3 +41,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 // wrap document so it plays nice with other libraries
 // http://www.polymer-project.org/platform/shadow-dom.html#wrappers
 // )(wrap(document));
+
+// Circle and Square Stuff
+
+
+      var scope = document.querySelector('template[is="dom-bind"]');
+
+      scope._onCircleClick = function(event) {
+        this.$.pages.selected = 1;
+      };
+
+      scope._onSquaresClick = function(event) {
+        this.$.pages.selected = 0;
+      };
+
