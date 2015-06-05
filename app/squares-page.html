@@ -50,30 +50,47 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   <template>
 
-    <div id="header" class="header"></div>
+    <div id="header" class="header">
+			<script>
+			  (function() {
+				var cx = '012477433197051517293:sl1ssjlfhme';
+				var gcse = document.createElement('script');
+				gcse.type = 'text/javascript';
+				gcse.async = true;
+				gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+					'//cse.google.com/cse.js?cx=' + cx;
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(gcse, s);
+			  })();
+			</script>
+			<gcse:search style="width:50%"></gcse:search>
+	</div>
 
     <div class="body">
       <div class="square">
-				<img src="images/squares/kid.jpg">
-				<h2>
-				 Family Hotels   
-				</h2>   
+			<img src="images/squares/kid.jpg">
+			<h2>
+			 Family Hotels   
+			</h2>   
 	  </div>
       <div class="square">
-	  <h2>
-		 Beachside Hotels   
-	   </h2>
+		  <img src="images/squares/beach.jpg">
+		  <h2>
+			 Beachside Hotels   
+		  </h2>
       </div>
       <div class="square">
-		<h2>
-		 Spa Hotels   
-	   </h2>
+		  <img src="images/squares/spa.jpg">
+		  <h2>
+			 Spa Hotels   
+		  </h2>
 	   </div>
       <div class="square">
-	   <h2>
-		 Pet Friendly   
-	   </h2>	
-	  </div>
+		   <img src="images/squares/pet.jpg">
+		   <h2>
+			 Pet Friendly   
+		   </h2>	
+	   </div>
     </div>
 
   </template>

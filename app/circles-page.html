@@ -20,7 +20,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       @apply(--layout-center-center);
     }
 
-    .circle {
+   .circle {
       display: inline-block;
       box-sizing: border-box;
       width: 300px;
@@ -29,7 +29,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       border-radius: 50%;
       background: var(--color-one);
 	  z-index:1000;
+      opacity: 0.9;
     }
+	
+	.circle:hover {
+		opacity: 1.0;
+	}
+	 
 	h1 {
 		position:absolute;
 		font-family: Roboto, Helvetica, Arial, sans-serif;
@@ -47,7 +53,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <template>
 
     <div>
-      <div class="circle" style="opacity: 0.7;">
+      <div class="circle">
 		  <h1>
 		  	Destination
 		  </h1>
@@ -57,7 +63,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 		  	<span></span>Hotels
 		  </h1>
 		</div>
-	  <div class="circle" style="opacity: 0.7;">
+	  <div class="circle">
 		<h1>
 		  	Things To Do
 		</h1>
